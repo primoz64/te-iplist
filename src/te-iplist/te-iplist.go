@@ -21,7 +21,7 @@ import (
 )
 
 const (
-	Ver               = "1.1.3"
+	Ver               = "1.2.0"
 	ApiUrl            = "https://api.thousandeyes.com"
 	IPList            = "ip"
 	SubnetListStrict  = "subnet-strict"
@@ -202,6 +202,7 @@ func apiRequest(token, endpoint string) *http.Response {
 			Timeout: 30 * time.Second,
 		}).Dial,
 		TLSHandshakeTimeout: 30 * time.Second,
+		Proxy:               http.ProxyFromEnvironment,
 	}
 
 	var netClient = &http.Client{

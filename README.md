@@ -268,3 +268,10 @@ Display only Enterprise Agents private IP addresses
 
 #### -country <list-of-countries>
 Display only Agents in a given list of countries. Example: `-country US,SI,DE`.
+
+### Proxy support
+`te-iplist` honors `HTTP_PROXY`, `HTTPS_PROXY` and `NO_PROXY` environment variables. I.e.:
+```
+export https_proxy=10.10.10.17:3128
+./te-iplist -c -t <token> 
+```
